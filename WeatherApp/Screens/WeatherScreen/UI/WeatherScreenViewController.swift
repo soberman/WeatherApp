@@ -25,6 +25,9 @@ final class WeatherScreenViewController: UIViewController {
 	fileprivate let kSettingsButtonPadding: CGFloat = 16
 	fileprivate let settingsButton = UIButton(frame: .zero)
 	
+	fileprivate let kCityLabelPadding: CGFloat = 16
+	fileprivate let cityLabel = UILabel(frame: .zero)
+	
 	
 	// MARK: Lifecycle
 	
@@ -67,6 +70,7 @@ fileprivate extension Private_InitialConfiguration {
 	func configureUI() {
 		configureView()
 		configureSettingsButton()
+		configureCityLabel()
 	}
 	
 	private func configureView() {
@@ -84,6 +88,17 @@ fileprivate extension Private_InitialConfiguration {
 			settingsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -kSettingsButtonPadding),
 			settingsButton.heightAnchor.constraint(equalToConstant: kSettingsButtonHeight),
 			settingsButton.widthAnchor.constraint(equalToConstant: kSettingsButtonHeight)
+		])
+	}
+	
+	private func configureCityLabel() {
+		cityLabel.text = "Change this text during loading state implementation"
+		view.addSubview(cityLabel)
+		
+		cityLabel.ars_activateConstraints([
+			cityLabel.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: kCityLabelPadding),
+			cityLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: kCityLabelPadding),
+			cityLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kCityLabelPadding)
 		])
 	}
 	
