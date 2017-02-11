@@ -18,6 +18,7 @@
 		271B998F1E4FBD590078D854 /* WeatherScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B998E1E4FBD590078D854 /* WeatherScreenWireframe.swift */; };
 		271B99911E4FBD7A0078D854 /* WeatherScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B99901E4FBD7A0078D854 /* WeatherScreenPresenter.swift */; };
 		271B99931E4FBD900078D854 /* WeatherScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B99921E4FBD900078D854 /* WeatherScreenViewController.swift */; };
+		271B99961E4FC72A0078D854 /* UIView+constraintHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B99951E4FC72A0078D854 /* UIView+constraintHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		271B998E1E4FBD590078D854 /* WeatherScreenWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenWireframe.swift; path = Screens/WeatherScreen/UI/WeatherScreenWireframe.swift; sourceTree = "<group>"; };
 		271B99901E4FBD7A0078D854 /* WeatherScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenPresenter.swift; path = Screens/WeatherScreen/UI/WeatherScreenPresenter.swift; sourceTree = "<group>"; };
 		271B99921E4FBD900078D854 /* WeatherScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenViewController.swift; path = Screens/WeatherScreen/UI/WeatherScreenViewController.swift; sourceTree = "<group>"; };
+		271B99951E4FC72A0078D854 /* UIView+constraintHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+constraintHelpers.swift"; path = "Helpers/UIView+constraintHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				271B996C1E4E66D90078D854 /* AppDelegate.swift */,
 				271B99821E4FB6450078D854 /* RootWireframe.swift */,
+				271B99941E4FC7030078D854 /* Helpers */,
 				271B998B1E4FBB8B0078D854 /* Services */,
 				271B998A1E4FBB450078D854 /* Screens */,
 				271B997F1E4FB5F00078D854 /* Supporting Files */,
@@ -128,6 +131,14 @@
 				271B998C1E4FBBBE0078D854 /* WorkDispatchService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		271B99941E4FC7030078D854 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				271B99951E4FC72A0078D854 /* UIView+constraintHelpers.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				271B99831E4FB6450078D854 /* RootWireframe.swift in Sources */,
 				271B99851E4FB70F0078D854 /* WeatherScreenInteractor.swift in Sources */,
 				271B996D1E4E66D90078D854 /* AppDelegate.swift in Sources */,
+				271B99961E4FC72A0078D854 /* UIView+constraintHelpers.swift in Sources */,
 				271B99891E4FB77A0078D854 /* WeatherScreenProtocols.swift in Sources */,
 				271B99911E4FBD7A0078D854 /* WeatherScreenPresenter.swift in Sources */,
 				271B99931E4FBD900078D854 /* WeatherScreenViewController.swift in Sources */,

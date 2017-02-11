@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
 	
-	func wh_stickAllEdges(to object: UIView, margin: CGFloat = 0) {
+	func ars_stickAllEdges(to object: UIView, margin: CGFloat = 0) {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			self.leftAnchor.constraint(equalTo: object.leftAnchor, constant: margin),
@@ -20,7 +20,7 @@ extension UIView {
 		])
 	}
 	
-	func wh_activateConstraints(_ constraints: [NSLayoutConstraint]) {
+	func ars_activateConstraints(_ constraints: [NSLayoutConstraint]) {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate(constraints)
 	}
