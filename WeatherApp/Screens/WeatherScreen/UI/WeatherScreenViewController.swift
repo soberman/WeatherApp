@@ -28,6 +28,15 @@ final class WeatherScreenViewController: UIViewController {
 	fileprivate let kCityLabelPadding: CGFloat = 16
 	fileprivate let cityLabel = UILabel(frame: .zero)
 	
+	fileprivate let kWeatherImageViewPadding: CGFloat = 16
+	fileprivate let kWeatherImageViewHeight: CGFloat = 100
+	fileprivate let weatherImageView = UIImageView(frame: .zero)
+	
+	fileprivate let kAverageTemperatureLabelFontSize: CGFloat = 64
+	fileprivate let kAverageTemperatureLabelRightPadding: CGFloat = 16
+	fileprivate let kAverageTemperatureLabelLeftPadding: CGFloat = 48
+	fileprivate let averageTemperatureLabel = UILabel(frame: .zero)
+	
 	
 	// MARK: Lifecycle
 	
@@ -71,6 +80,8 @@ fileprivate extension Private_InitialConfiguration {
 		configureView()
 		configureSettingsButton()
 		configureCityLabel()
+		configureWeatherImageView()
+		configureAverageTemperatureLabel()
 	}
 	
 	private func configureView() {
@@ -92,6 +103,7 @@ fileprivate extension Private_InitialConfiguration {
 	}
 	
 	private func configureCityLabel() {
+		// TODO: remove this during loading state implementation
 		cityLabel.text = "Change this text during loading state implementation"
 		view.addSubview(cityLabel)
 		
@@ -99,6 +111,32 @@ fileprivate extension Private_InitialConfiguration {
 			cityLabel.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: kCityLabelPadding),
 			cityLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: kCityLabelPadding),
 			cityLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kCityLabelPadding)
+		])
+	}
+	
+	private func configureWeatherImageView() {
+		// TODO: remove this during loading state implementation
+		weatherImageView.backgroundColor = .purple
+		view.addSubview(weatherImageView)
+		
+		weatherImageView.ars_activateConstraints([
+			weatherImageView.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: kWeatherImageViewPadding),
+			weatherImageView.leftAnchor.constraint(equalTo: cityLabel.leftAnchor),
+			weatherImageView.heightAnchor.constraint(equalToConstant: kWeatherImageViewHeight),
+			weatherImageView.widthAnchor.constraint(equalToConstant: kWeatherImageViewHeight)
+		])
+	}
+	
+	private func configureAverageTemperatureLabel() {
+		// TODO: remove this during loading state implementation
+		averageTemperatureLabel.text = "+15°"
+		averageTemperatureLabel.font = UIFont.systemFont(ofSize: kAverageTemperatureLabelFontSize)
+		view.addSubview(averageTemperatureLabel)
+		
+		averageTemperatureLabel.ars_activateConstraints([
+			averageTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.topAnchor),
+			averageTemperatureLabel.leftAnchor.constraint(equalTo: weatherImageView.rightAnchor, constant: kAverageTemperatureLabelLeftPadding),
+			averageTemperatureLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kAverageTemperatureLabelRightPadding)
 		])
 	}
 	
