@@ -43,4 +43,13 @@ extension AccessibleFromOutside {
 
 extension WeatherScreenPresenter: WeatherScreenViewToPresenterInterface {
 	
+	func didLoadView() {
+		
+	}
+	
+	func didTapSettingsButton() {
+		
+	}
+	
+	
 }

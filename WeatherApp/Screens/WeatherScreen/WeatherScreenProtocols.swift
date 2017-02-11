@@ -13,7 +13,8 @@ protocol WeatherScreenPresenterToViewInterface: class {
 }
 
 protocol WeatherScreenViewToPresenterInterface: class {
-	
+	func didLoadView()
+	func didTapSettingsButton()
 }
 
 protocol WeatherScreenPresenterToInteractorInterface: class {
