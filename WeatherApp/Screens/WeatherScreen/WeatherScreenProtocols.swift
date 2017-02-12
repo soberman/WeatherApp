@@ -10,6 +10,8 @@ import Foundation
 
 protocol WeatherScreenPresenterToViewInterface: class, ErrorShowable {
 	func updateUI(withModel viewModel: WeatherScreenViewModel)
+	func showPreloader()
+	func hidePreloader()
 }
 
 protocol WeatherScreenViewToPresenterInterface: class {

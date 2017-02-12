@@ -59,8 +59,10 @@ fileprivate extension Private {
 		self.interactor.requestWeather(forCity: .dnepr, onCompletion: { [unowned self] (response) in
 			self.buildViewModel(from: response, onComplete: { (viewModel) in
 				self.view?.updateUI(withModel: viewModel)
+				self.view?.hidePreloader()
 			})
 		}, onError: { [unowned self] errorText in
+			self.view?.hidePreloader()
 			self.view?.showError(errorDescription: errorText, confirmTitle: "Retry", onConfirm: {
 				self.retryRequestingWeather(for: .dnepr)
 			})
@@ -77,6 +79,7 @@ fileprivate extension Private {
 extension WeatherScreenPresenter: WeatherScreenViewToPresenterInterface {
 	
 	func didLoadView() {
+		view?.showPreloader()
 		requestWeather(for: .dnepr)
 	}
 	

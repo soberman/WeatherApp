@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ARSLineProgress
 
 
 // MARK: Typealiases
@@ -196,6 +197,14 @@ fileprivate extension Private_InitialConfiguration {
 }
 
 extension WeatherScreenViewController: WeatherScreenPresenterToViewInterface {
+	
+	func showPreloader() {
+		ARSLineProgress.ars_showOnView(self.view)
+	}
+	
+	func hidePreloader() {
+		ARSLineProgress.hide()
+	}
 	
 	func updateUI(withModel viewModel: WeatherScreenViewModel) {
 		cityLabel.text = viewModel.cityName
