@@ -45,6 +45,8 @@ final class WeatherScreenViewController: UIViewController {
 	fileprivate let kDayTemperatureLaeblFontSize: CGFloat = 18
 	fileprivate let dayTemperatureLabel = UILabel(frame: .zero)
 	
+	fileprivate let kWeatherDescriptionLabelFontSize: CGFloat = 14
+	fileprivate let kWeatherDescriptionLabelNumberOfLines: Int = 2
 	fileprivate let weatherDescriptionLabel = UILabel(frame: .zero)
 	
 	
@@ -139,8 +141,8 @@ fileprivate extension Private_InitialConfiguration {
 	
 	private func configureWeatherDescriptionLabel() {
 		weatherDescriptionLabel.text = ""
-		weatherDescriptionLabel.font = UIFont.systemFont(ofSize: 14)
-		weatherDescriptionLabel.numberOfLines = 2
+		weatherDescriptionLabel.font = UIFont.systemFont(ofSize: kWeatherDescriptionLabelFontSize)
+		weatherDescriptionLabel.numberOfLines = kWeatherDescriptionLabelNumberOfLines
 		view.addSubview(weatherDescriptionLabel)
 	}
 	
