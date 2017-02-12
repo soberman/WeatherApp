@@ -197,4 +197,9 @@ fileprivate extension Private_InitialConfiguration {
 
 extension WeatherScreenViewController: WeatherScreenPresenterToViewInterface {
 	
+	func updateUI(withModel viewModel: WeatherScreenViewModel) {
+		
+	}
+	
+	
 }

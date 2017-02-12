@@ -16,4 +16,9 @@ final class WeatherScreenInteractor {
 
 extension WeatherScreenInteractor: WeatherScreenPresenterToInteractorInterface {
 	
+	func requestWeather(withCompletion onCompletion: (_ response: WeatherScreenResponseModel) -> Void) {
+		onCompletion(WeatherScreenResponseModel())
+	}
+	
+	
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol WeatherScreenPresenterToViewInterface: class {
-	
+	func updateUI(withModel viewModel: WeatherScreenViewModel)
 }
 
 protocol WeatherScreenViewToPresenterInterface: class {
@@ -18,7 +18,7 @@ protocol WeatherScreenViewToPresenterInterface: class {
 }
 
 protocol WeatherScreenPresenterToInteractorInterface: class {
-	
+	func requestWeather(withCompletion onCompletion: (_ response: WeatherScreenResponseModel) -> Void)
 }
 
 protocol WeatherScreenPresenterToWireframeInterface: class {
