@@ -26,6 +26,7 @@
 		278EC3C81E509A8300C8BF45 /* WeatherAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3C71E509A8300C8BF45 /* WeatherAPIService.swift */; };
 		278EC3CA1E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3C91E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift */; };
 		278EC3CD1E50CB0100C8BF45 /* ErrorShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3CC1E50CB0100C8BF45 /* ErrorShowable.swift */; };
+		278EC3D11E50EAEB00C8BF45 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		278EC3C71E509A8300C8BF45 /* WeatherAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherAPIService.swift; path = Services/WeatherAPIService.swift; sourceTree = "<group>"; };
 		278EC3C91E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenResponseModelBuilder.swift; path = Screens/WeatherScreen/Logic/Models/WeatherScreenResponseModelBuilder.swift; sourceTree = "<group>"; };
 		278EC3CC1E50CB0100C8BF45 /* ErrorShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorShowable.swift; path = "General Protocols/ErrorShowable.swift"; sourceTree = "<group>"; };
+		278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		278EC3D21E50EBD400C8BF45 /* WeatherApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeatherApp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278EC3D11E50EAEB00C8BF45 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +72,7 @@
 			children = (
 				271B996B1E4E66D90078D854 /* WeatherApp */,
 				271B996A1E4E66D90078D854 /* Products */,
+				278EC3CF1E50EAEB00C8BF45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +116,7 @@
 				271B99731E4E66D90078D854 /* Assets.xcassets */,
 				271B99751E4E66D90078D854 /* LaunchScreen.storyboard */,
 				271B99781E4E66D90078D854 /* Info.plist */,
+				278EC3D21E50EBD400C8BF45 /* WeatherApp-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -186,6 +192,14 @@
 			name = "General Protocols";
 			sourceTree = "<group>";
 		};
+		278EC3CF1E50EAEB00C8BF45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,6 +210,7 @@
 				271B99651E4E66D90078D854 /* Sources */,
 				271B99661E4E66D90078D854 /* Frameworks */,
 				271B99671E4E66D90078D854 /* Resources */,
+				278EC3CE1E50EA8300C8BF45 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -219,6 +234,7 @@
 					271B99681E4E66D90078D854 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = B7LBN3YR79;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -252,6 +268,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		278EC3CE1E50EA8300C8BF45 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		271B99651E4E66D90078D854 /* Sources */ = {
@@ -389,11 +423,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B7LBN3YR79;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arsenkin.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeatherApp/WeatherApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -402,11 +443,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B7LBN3YR79;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arsenkin.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeatherApp/WeatherApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
