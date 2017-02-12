@@ -37,6 +37,14 @@ final class WeatherScreenViewController: UIViewController {
 	fileprivate let kAverageTemperatureLabelLeftPadding: CGFloat = 48
 	fileprivate let averageTemperatureLabel = UILabel(frame: .zero)
 	
+	fileprivate let kNightTemperatureLabelPadding: CGFloat = 16
+	fileprivate let kNightTemperatureLabelFontSize: CGFloat = 18
+	fileprivate let nightTemperatureLabel = UILabel(frame: .zero)
+	
+	fileprivate let kDayTemperatureLabelPadding: CGFloat = 16
+	fileprivate let kDayTemperatureLaeblFontSize: CGFloat = 18
+	fileprivate let dayTemperatureLabel = UILabel(frame: .zero)
+	
 	
 	// MARK: Lifecycle
 	
@@ -82,6 +90,8 @@ fileprivate extension Private_InitialConfiguration {
 		configureCityLabel()
 		configureWeatherImageView()
 		configureAverageTemperatureLabel()
+		configureNightTemperatureLabel()
+		configureDayTemperatureLebel()
 	}
 	
 	private func configureView() {
@@ -137,6 +147,30 @@ fileprivate extension Private_InitialConfiguration {
 			averageTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.topAnchor),
 			averageTemperatureLabel.leftAnchor.constraint(equalTo: weatherImageView.rightAnchor, constant: kAverageTemperatureLabelLeftPadding),
 			averageTemperatureLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kAverageTemperatureLabelRightPadding)
+		])
+	}
+	
+	private func configureNightTemperatureLabel() {
+		// TODO: remove this during loading state implementation
+		nightTemperatureLabel.text = "+8°"
+		nightTemperatureLabel.font = UIFont.systemFont(ofSize: kNightTemperatureLabelFontSize)
+		view.addSubview(nightTemperatureLabel)
+		
+		nightTemperatureLabel.ars_activateConstraints([
+			nightTemperatureLabel.topAnchor.constraint(equalTo: averageTemperatureLabel.bottomAnchor),
+			nightTemperatureLabel.rightAnchor.constraint(equalTo: averageTemperatureLabel.rightAnchor, constant: -kNightTemperatureLabelPadding)
+		])
+	}
+	
+	private func configureDayTemperatureLebel() {
+		// TODO: remove this during loading state implementation
+		dayTemperatureLabel.text = "+18°"
+		dayTemperatureLabel.font = UIFont.systemFont(ofSize: kDayTemperatureLaeblFontSize)
+		view.addSubview(dayTemperatureLabel)
+		
+		dayTemperatureLabel.ars_activateConstraints([
+			dayTemperatureLabel.topAnchor.constraint(equalTo: nightTemperatureLabel.topAnchor),
+			dayTemperatureLabel.rightAnchor.constraint(equalTo: nightTemperatureLabel.leftAnchor, constant: -kDayTemperatureLabelPadding)
 		])
 	}
 	
