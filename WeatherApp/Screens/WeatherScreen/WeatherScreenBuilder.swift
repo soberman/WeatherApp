@@ -11,9 +11,10 @@ import UIKit
 final class WeatherScreenBuilder {
 	
 	class func buildWeatherScreen() -> UIViewController {
+		let dispatcher = WeatherScreenDispatcher()
 		let wireframe = WeatherScreenWireframe()
 		let interactor = WeatherScreenInteractor()
-		let presenter = WeatherScreenPresenter(interactor: interactor, wireframe: wireframe)
+		let presenter = WeatherScreenPresenter(interactor: interactor, wireframe: wireframe, dispatcher: dispatcher)
 		let viewController = WeatherScreenViewController(withPresenter: presenter)
 		
 		presenter.setView(viewController)

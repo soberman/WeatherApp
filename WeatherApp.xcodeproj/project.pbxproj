@@ -19,6 +19,7 @@
 		271B99911E4FBD7A0078D854 /* WeatherScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B99901E4FBD7A0078D854 /* WeatherScreenPresenter.swift */; };
 		271B99931E4FBD900078D854 /* WeatherScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B99921E4FBD900078D854 /* WeatherScreenViewController.swift */; };
 		271B99961E4FC72A0078D854 /* UIView+constraintHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B99951E4FC72A0078D854 /* UIView+constraintHelpers.swift */; };
+		278EC3BE1E508A8C00C8BF45 /* WeatherScreenDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3BD1E508A8C00C8BF45 /* WeatherScreenDispatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		271B99901E4FBD7A0078D854 /* WeatherScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenPresenter.swift; path = Screens/WeatherScreen/UI/WeatherScreenPresenter.swift; sourceTree = "<group>"; };
 		271B99921E4FBD900078D854 /* WeatherScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenViewController.swift; path = Screens/WeatherScreen/UI/WeatherScreenViewController.swift; sourceTree = "<group>"; };
 		271B99951E4FC72A0078D854 /* UIView+constraintHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+constraintHelpers.swift"; path = "Helpers/UIView+constraintHelpers.swift"; sourceTree = "<group>"; };
+		278EC3BD1E508A8C00C8BF45 /* WeatherScreenDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenDispatcher.swift; path = Screens/WeatherScreen/WeatherScreenDispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				271B99861E4FB7290078D854 /* WeatherScreenBuilder.swift */,
 				271B99881E4FB77A0078D854 /* WeatherScreenProtocols.swift */,
+				278EC3BD1E508A8C00C8BF45 /* WeatherScreenDispatcher.swift */,
 				271B99801E4FB6000078D854 /* Logic */,
 				271B99811E4FB60A0078D854 /* UI */,
 			);
@@ -215,6 +218,7 @@
 			files = (
 				271B998F1E4FBD590078D854 /* WeatherScreenWireframe.swift in Sources */,
 				271B998D1E4FBBBE0078D854 /* WorkDispatchService.swift in Sources */,
+				278EC3BE1E508A8C00C8BF45 /* WeatherScreenDispatcher.swift in Sources */,
 				271B99871E4FB7290078D854 /* WeatherScreenBuilder.swift in Sources */,
 				271B99831E4FB6450078D854 /* RootWireframe.swift in Sources */,
 				271B99851E4FB70F0078D854 /* WeatherScreenInteractor.swift in Sources */,
