@@ -24,16 +24,10 @@ protocol WorkDispacthable {
 	
 	// MARK: - Have default implementation
 	
-	var serialQueue: DispatchQueue { get }
-	
 	func dispatch(on queueType: WorkDispatchQueue, workItem: @escaping () -> Void)
 }
 
 extension WorkDispacthable {
-	
-	var serialQueue: DispatchQueue {
-		return DispatchQueue(label: "com.arsenkin.\(entityName).backgroundQueue.sync")
-	}
 	
 	func dispatch(on queueType: WorkDispatchQueue, workItem: @escaping () -> Void) {
 		switch queueType {
@@ -43,7 +37,16 @@ extension WorkDispacthable {
 		}
 	}
 	
-	private func dispatchOnMainQueue(_ workItem: @escaping () -> Void) {
+	
+}
+
+fileprivate extension WorkDispacthable {
+	
+	var serialQueue: DispatchQueue {
+		return DispatchQueue(label: "com.arsenkin.\(entityName).backgroundQueue.sync")
+	}
+	
+	func dispatchOnMainQueue(_ workItem: @escaping () -> Void) {
 		if Thread.isMainThread {
 			workItem()
 		} else {
@@ -51,11 +54,11 @@ extension WorkDispacthable {
 		}
 	}
 	
-	private func dispatchOnBackgroundConcurent(_ workItem: @escaping () -> Void) {
+	func dispatchOnBackgroundConcurent(_ workItem: @escaping () -> Void) {
 		DispatchQueue.global().async(execute: workItem)
 	}
 	
-	private func dispatchOnBackgroundSerial(_ workItem: @escaping () -> Void) {
+	func dispatchOnBackgroundSerial(_ workItem: @escaping () -> Void) {
 		serialQueue.async(execute: workItem)
 	}
 	
