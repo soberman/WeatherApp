@@ -45,6 +45,8 @@ final class WeatherScreenViewController: UIViewController {
 	fileprivate let kDayTemperatureLaeblFontSize: CGFloat = 18
 	fileprivate let dayTemperatureLabel = UILabel(frame: .zero)
 	
+	fileprivate let weatherDescriptionLabel = UILabel(frame: .zero)
+	
 	
 	// MARK: Lifecycle
 	
@@ -92,6 +94,7 @@ fileprivate extension Private_InitialConfiguration {
 		configureAverageTemperatureLabel()
 		configureNightTemperatureLabel()
 		configureDayTemperatureLebel()
+		configureWeatherDescriptionLabel()
 	}
 	
 	private func configureView() {
@@ -173,6 +176,21 @@ fileprivate extension Private_InitialConfiguration {
 			dayTemperatureLabel.rightAnchor.constraint(equalTo: nightTemperatureLabel.leftAnchor, constant: -kDayTemperatureLabelPadding)
 		])
 	}
+	
+	private func configureWeatherDescriptionLabel() {
+		// TODO: remove this during loading state implementation
+		weatherDescriptionLabel.text = "Change this text during loading state implementation"
+		weatherDescriptionLabel.font = UIFont.systemFont(ofSize: 14)
+		weatherDescriptionLabel.numberOfLines = 2
+		view.addSubview(weatherDescriptionLabel)
+		
+		weatherDescriptionLabel.ars_activateConstraints([
+			weatherDescriptionLabel.topAnchor.constraint(equalTo: nightTemperatureLabel.bottomAnchor),
+			weatherDescriptionLabel.leftAnchor.constraint(equalTo: averageTemperatureLabel.leftAnchor),
+			weatherDescriptionLabel.rightAnchor.constraint(equalTo: averageTemperatureLabel.rightAnchor),
+		])
+	}
+	
 	
 }
 
