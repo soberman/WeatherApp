@@ -28,6 +28,12 @@
 		278EC3CD1E50CB0100C8BF45 /* ErrorShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3CC1E50CB0100C8BF45 /* ErrorShowable.swift */; };
 		278EC3D11E50EAEB00C8BF45 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */; };
 		278EC3D71E50EE7900C8BF45 /* ARSLineProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278EC3D61E50EE7900C8BF45 /* ARSLineProgress.framework */; };
+		278EC3DA1E50F6A800C8BF45 /* ListOfCitiesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3D91E50F6A800C8BF45 /* ListOfCitiesModuleBuilder.swift */; };
+		278EC3DC1E50FA7500C8BF45 /* ListOfCitiesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3DB1E50FA7500C8BF45 /* ListOfCitiesProtocols.swift */; };
+		278EC3E01E50FC1400C8BF45 /* ListOfCitiesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3DF1E50FC1400C8BF45 /* ListOfCitiesWireframe.swift */; };
+		278EC3E21E50FC2600C8BF45 /* ListOfCitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3E11E50FC2600C8BF45 /* ListOfCitiesPresenter.swift */; };
+		278EC3E41E50FC3500C8BF45 /* ListOfCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3E31E50FC3500C8BF45 /* ListOfCitiesViewController.swift */; };
+		278EC3E61E50FC5600C8BF45 /* ListOfCitiesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3E51E50FC5600C8BF45 /* ListOfCitiesInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +61,12 @@
 		278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		278EC3D21E50EBD400C8BF45 /* WeatherApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeatherApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		278EC3D61E50EE7900C8BF45 /* ARSLineProgress.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARSLineProgress.framework; path = Carthage/Build/iOS/ARSLineProgress.framework; sourceTree = "<group>"; };
+		278EC3D91E50F6A800C8BF45 /* ListOfCitiesModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListOfCitiesModuleBuilder.swift; path = Screens/ListOfCities/ListOfCitiesModuleBuilder.swift; sourceTree = "<group>"; };
+		278EC3DB1E50FA7500C8BF45 /* ListOfCitiesProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListOfCitiesProtocols.swift; path = Screens/ListOfCities/ListOfCitiesProtocols.swift; sourceTree = "<group>"; };
+		278EC3DF1E50FC1400C8BF45 /* ListOfCitiesWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListOfCitiesWireframe.swift; path = Screens/ListOfCities/UI/ListOfCitiesWireframe.swift; sourceTree = "<group>"; };
+		278EC3E11E50FC2600C8BF45 /* ListOfCitiesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListOfCitiesPresenter.swift; path = Screens/ListOfCities/UI/ListOfCitiesPresenter.swift; sourceTree = "<group>"; };
+		278EC3E31E50FC3500C8BF45 /* ListOfCitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListOfCitiesViewController.swift; path = Screens/ListOfCities/UI/ListOfCitiesViewController.swift; sourceTree = "<group>"; };
+		278EC3E51E50FC5600C8BF45 /* ListOfCitiesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListOfCitiesInteractor.swift; path = Screens/ListOfCities/Logic/ListOfCitiesInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +159,7 @@
 		271B998A1E4FBB450078D854 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				278EC3D81E50F5FA00C8BF45 /* ListOfCities */,
 				271B997E1E4FB5B90078D854 /* WeatherScreen */,
 			);
 			name = Screens;
@@ -202,6 +215,35 @@
 				278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		278EC3D81E50F5FA00C8BF45 /* ListOfCities */ = {
+			isa = PBXGroup;
+			children = (
+				278EC3D91E50F6A800C8BF45 /* ListOfCitiesModuleBuilder.swift */,
+				278EC3DB1E50FA7500C8BF45 /* ListOfCitiesProtocols.swift */,
+				278EC3DE1E50FABE00C8BF45 /* Logic */,
+				278EC3DD1E50FABA00C8BF45 /* UI */,
+			);
+			name = ListOfCities;
+			sourceTree = "<group>";
+		};
+		278EC3DD1E50FABA00C8BF45 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				278EC3DF1E50FC1400C8BF45 /* ListOfCitiesWireframe.swift */,
+				278EC3E11E50FC2600C8BF45 /* ListOfCitiesPresenter.swift */,
+				278EC3E31E50FC3500C8BF45 /* ListOfCitiesViewController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		278EC3DE1E50FABE00C8BF45 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				278EC3E51E50FC5600C8BF45 /* ListOfCitiesInteractor.swift */,
+			);
+			name = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,18 +341,24 @@
 			files = (
 				278EC3C81E509A8300C8BF45 /* WeatherAPIService.swift in Sources */,
 				271B998F1E4FBD590078D854 /* WeatherScreenWireframe.swift in Sources */,
+				278EC3E21E50FC2600C8BF45 /* ListOfCitiesPresenter.swift in Sources */,
 				271B998D1E4FBBBE0078D854 /* WorkDispatchService.swift in Sources */,
 				278EC3CD1E50CB0100C8BF45 /* ErrorShowable.swift in Sources */,
 				278EC3C01E508E0D00C8BF45 /* WeatherScreenResponseModel.swift in Sources */,
+				278EC3E61E50FC5600C8BF45 /* ListOfCitiesInteractor.swift in Sources */,
+				278EC3DA1E50F6A800C8BF45 /* ListOfCitiesModuleBuilder.swift in Sources */,
 				278EC3BE1E508A8C00C8BF45 /* WeatherScreenDispatcher.swift in Sources */,
 				271B99871E4FB7290078D854 /* WeatherScreenBuilder.swift in Sources */,
 				271B99831E4FB6450078D854 /* RootWireframe.swift in Sources */,
+				278EC3DC1E50FA7500C8BF45 /* ListOfCitiesProtocols.swift in Sources */,
 				278EC3C41E508F7600C8BF45 /* WeatherScreenViewModel.swift in Sources */,
 				278EC3C61E508F9A00C8BF45 /* WeatherScreenViewModelBuilder.swift in Sources */,
 				278EC3CA1E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift in Sources */,
 				271B99851E4FB70F0078D854 /* WeatherScreenInteractor.swift in Sources */,
+				278EC3E01E50FC1400C8BF45 /* ListOfCitiesWireframe.swift in Sources */,
 				271B996D1E4E66D90078D854 /* AppDelegate.swift in Sources */,
 				271B99961E4FC72A0078D854 /* UIView+constraintHelpers.swift in Sources */,
+				278EC3E41E50FC3500C8BF45 /* ListOfCitiesViewController.swift in Sources */,
 				271B99891E4FB77A0078D854 /* WeatherScreenProtocols.swift in Sources */,
 				271B99911E4FBD7A0078D854 /* WeatherScreenPresenter.swift in Sources */,
 				271B99931E4FBD900078D854 /* WeatherScreenViewController.swift in Sources */,

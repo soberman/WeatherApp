@@ -8,21 +8,21 @@
 
 import Foundation
 
-protocol WeatherScreenPresenterToViewInterface: class, ErrorShowable {
+protocol WeatherScreenPresenterToView: class, ErrorShowable {
 	func updateUI(withModel viewModel: WeatherScreenViewModel)
 	func showPreloader()
 	func hidePreloader()
 }
 
-protocol WeatherScreenViewToPresenterInterface: class {
+protocol WeatherScreenViewToPresenter: class {
 	func didLoadView()
 	func didTapSettingsButton()
 }
 
-protocol WeatherScreenPresenterToInteractorInterface: class {
+protocol WeatherScreenPresenterToInteractor: class {
 	func requestWeather(forCity city: City, onCompletion: @escaping (_ response: WeatherScreenResponseModel) -> Void, onError: @escaping (_ error: String) -> Void)
 }
 
-protocol WeatherScreenPresenterToWireframeInterface: class {
-	
+protocol WeatherScreenPresenterToWireframe: class {
+	func showListOfCitiesModule(on viewController: UIViewController)
 }

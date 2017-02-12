@@ -20,7 +20,7 @@ fileprivate typealias Private_InitialConfiguration	= WeatherScreenViewController
 
 final class WeatherScreenViewController: UIViewController, ErrorShowable {
 	
-	fileprivate let presenter: WeatherScreenViewToPresenterInterface
+	fileprivate let presenter: WeatherScreenViewToPresenter
 	
 	fileprivate let kSettingsButtonHeight: CGFloat = 20
 	fileprivate let kSettingsButtonPadding: CGFloat = 16
@@ -53,7 +53,7 @@ final class WeatherScreenViewController: UIViewController, ErrorShowable {
 	
 	// MARK: Lifecycle
 	
-	init(withPresenter presenter: WeatherScreenViewToPresenterInterface) {
+	init(withPresenter presenter: WeatherScreenViewToPresenter) {
 		self.presenter = presenter
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -196,7 +196,7 @@ fileprivate extension Private_InitialConfiguration {
 	
 }
 
-extension WeatherScreenViewController: WeatherScreenPresenterToViewInterface {
+extension WeatherScreenViewController: WeatherScreenPresenterToView {
 	
 	func showPreloader() {
 		ARSLineProgress.ars_showOnView(self.view)

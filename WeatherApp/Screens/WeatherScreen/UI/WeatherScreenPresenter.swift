@@ -19,14 +19,14 @@ fileprivate typealias Private = WeatherScreenPresenter
 
 final class WeatherScreenPresenter {
 	
-	fileprivate let interactor: WeatherScreenPresenterToInteractorInterface
-	fileprivate let wireframe: WeatherScreenPresenterToWireframeInterface
+	fileprivate let interactor: WeatherScreenPresenterToInteractor
+	fileprivate let wireframe: WeatherScreenPresenterToWireframe
 	fileprivate let dispatcher: WeatherScreenDispatcher
 	
-	fileprivate weak var view: WeatherScreenPresenterToViewInterface?
+	fileprivate weak var view: WeatherScreenPresenterToView?
 	
 	
-	init(interactor: WeatherScreenPresenterToInteractorInterface, wireframe: WeatherScreenPresenterToWireframeInterface, dispatcher: WeatherScreenDispatcher) {
+	init(interactor: WeatherScreenPresenterToInteractor, wireframe: WeatherScreenPresenterToWireframe, dispatcher: WeatherScreenDispatcher) {
 		self.interactor = interactor
 		self.wireframe = wireframe
 		self.dispatcher = dispatcher
@@ -37,7 +37,7 @@ final class WeatherScreenPresenter {
 
 extension AccessibleFromOutside {
 	
-	func setView(_ view: WeatherScreenPresenterToViewInterface) {
+	func setView(_ view: WeatherScreenPresenterToView) {
 		self.view = view
 	}
 	
@@ -76,7 +76,7 @@ fileprivate extension Private {
 	
 }
 
-extension WeatherScreenPresenter: WeatherScreenViewToPresenterInterface {
+extension WeatherScreenPresenter: WeatherScreenViewToPresenter {
 	
 	func didLoadView() {
 		view?.showPreloader()
@@ -84,7 +84,8 @@ extension WeatherScreenPresenter: WeatherScreenViewToPresenterInterface {
 	}
 	
 	func didTapSettingsButton() {
-		
+		guard let viewController = view as? UIViewController else { return }
+		wireframe.showListOfCitiesModule(on: viewController)
 	}
 	
 	

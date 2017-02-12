@@ -25,7 +25,7 @@ fileprivate extension Private {
 	
 }
 
-extension WeatherScreenInteractor: WeatherScreenPresenterToInteractorInterface {
+extension WeatherScreenInteractor: WeatherScreenPresenterToInteractor {
 	
 	func requestWeather(forCity city: City, onCompletion: @escaping (_ response: WeatherScreenResponseModel) -> Void, onError: @escaping (_ error: String) -> Void) {
 		WeatherAPIService.requestWeather(for: city, onSuccess: { json in

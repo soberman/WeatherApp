@@ -8,10 +8,14 @@
 
 import Foundation
 
-final class WeatherScreenWireframe {
-	
-}
+final class WeatherScreenWireframe {}
 
-extension WeatherScreenWireframe: WeatherScreenPresenterToWireframeInterface {
+extension WeatherScreenWireframe: WeatherScreenPresenterToWireframe {
+	
+	func showListOfCitiesModule(on viewController: UIViewController) {
+		let listOfCitiesViewController = ListOfCitiesModuleBuilder.buildListOfCitiesModule()
+		viewController.present(listOfCitiesViewController, animated: true, completion: nil)
+	}
+	
 	
 }

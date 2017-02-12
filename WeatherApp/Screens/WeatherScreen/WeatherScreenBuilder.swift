@@ -8,9 +8,12 @@
 
 import UIKit
 
-final class WeatherScreenBuilder {
+struct WeatherScreenModuleBuilder {
 	
-	class func buildWeatherScreen() -> UIViewController {
+	private init() {}
+	
+	
+	static func buildWeatherScreen() -> UIViewController {
 		let dispatcher = WeatherScreenDispatcher()
 		let wireframe = WeatherScreenWireframe()
 		let interactor = WeatherScreenInteractor()

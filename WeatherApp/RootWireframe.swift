@@ -11,7 +11,7 @@ import UIKit
 final class RootWireframe {
 	
 	class func buildInitialViewController() -> UIViewController {
-		return WeatherScreenBuilder.buildWeatherScreen()
+		return WeatherScreenModuleBuilder.buildWeatherScreen()
 	}
 	
 	
