@@ -14,7 +14,8 @@ struct WeatherScreenResponseModelBuilder {
 	
 	
 	static func buildModel(from json: [String : Any]) -> WeatherScreenResponseModel {
-		let maybeWeatherDict = json["weather"] as? [String : Any]
+		let maybeWeatherArrayDict = json["weather"] as? [[String : Any]]
+		let maybeWeatherDict = maybeWeatherArrayDict?.first
 		let maybeWeatherDescription = maybeWeatherDict?["description"] as? String
 		let maybeIconID = maybeWeatherDict?["icon"] as? String
 		

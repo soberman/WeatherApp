@@ -21,7 +21,7 @@ struct WeatherScreenViewModelBuilder {
 		
 		return WeatherScreenViewModel(cityName: responseModel.maybeCityName ?? "Your current location",
 		                              weatherDescription: responseModel.maybeWeatherDescription ?? "",
-		                              weatherIcon: maybeIconURL,
+		                              maybeWeatherIcon: maybeIconURL,
 		                              averageTemperature: responseModel.maybeAverageTemp != nil ? String(responseModel.maybeAverageTemp!) : "0",
 		                              maxTemperature: responseModel.maybeMaxTemp != nil ? String(responseModel.maybeMaxTemp!) : "0",
 		                              minTemperature: responseModel.maybeMinTemp != nil ? String(responseModel.maybeMinTemp!) : "0")

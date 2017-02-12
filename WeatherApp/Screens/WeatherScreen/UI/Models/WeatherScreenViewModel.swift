@@ -12,7 +12,7 @@ struct WeatherScreenViewModel {
 	
 	let cityName: String
 	let weatherDescription: String
-	let weatherIcon: URL?
+	let maybeWeatherIcon: URL?
 	let averageTemperature: String
 	let maxTemperature: String
 	let minTemperature: String

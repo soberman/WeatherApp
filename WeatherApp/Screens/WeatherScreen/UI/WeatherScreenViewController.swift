@@ -212,6 +212,7 @@ extension WeatherScreenViewController: WeatherScreenPresenterToViewInterface {
 		minTemperatureLabel.text = viewModel.minTemperature
 		maxTemperatureLabel.text = viewModel.maxTemperature
 		weatherDescriptionLabel.text = viewModel.weatherDescription
+		weatherImageView.sd_setImage(with: viewModel.maybeWeatherIcon)
 	}
 	
 	
