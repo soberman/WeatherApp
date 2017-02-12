@@ -110,42 +110,35 @@ fileprivate extension Private_InitialConfiguration {
 	}
 	
 	private func configureCityLabel() {
-		// TODO: remove this during loading state implementation
-		cityLabel.text = "Change this text during loading state implementation"
+		cityLabel.text = ""
 		view.addSubview(cityLabel)
 	}
 	
 	private func configureWeatherImageView() {
-		// TODO: remove this during loading state implementation
-		weatherImageView.backgroundColor = .purple
 		view.addSubview(weatherImageView)
 	}
 	
 	private func configureAverageTemperatureLabel() {
-		// TODO: remove this during loading state implementation
-		averageTemperatureLabel.text = "+15°"
+		averageTemperatureLabel.text = ""
 		averageTemperatureLabel.font = UIFont.systemFont(ofSize: kAverageTemperatureLabelFontSize)
 		view.addSubview(averageTemperatureLabel)
 	}
 	
 	private func configureDayTemperatureLebel() {
-		// TODO: remove this during loading state implementation
-		dayTemperatureLabel.text = "+18°"
+		dayTemperatureLabel.text = ""
 		dayTemperatureLabel.font = UIFont.systemFont(ofSize: kDayTemperatureLaeblFontSize)
 		view.addSubview(dayTemperatureLabel)
 	}
 	
 	private func configureNightTemperatureLabel() {
-		// TODO: remove this during loading state implementation
-		nightTemperatureLabel.text = "+8°"
+		nightTemperatureLabel.text = ""
 		nightTemperatureLabel.textAlignment = .left
 		nightTemperatureLabel.font = UIFont.systemFont(ofSize: kNightTemperatureLabelFontSize)
 		view.addSubview(nightTemperatureLabel)
 	}
 	
 	private func configureWeatherDescriptionLabel() {
-		// TODO: remove this during loading state implementation
-		weatherDescriptionLabel.text = "Change this text during loading state implementation"
+		weatherDescriptionLabel.text = ""
 		weatherDescriptionLabel.font = UIFont.systemFont(ofSize: 14)
 		weatherDescriptionLabel.numberOfLines = 2
 		view.addSubview(weatherDescriptionLabel)
