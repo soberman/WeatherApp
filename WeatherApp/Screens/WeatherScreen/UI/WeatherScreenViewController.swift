@@ -17,7 +17,7 @@ fileprivate typealias Private_InitialConfiguration	= WeatherScreenViewController
 
 // MARK: Classes
 
-final class WeatherScreenViewController: UIViewController {
+final class WeatherScreenViewController: UIViewController, ErrorShowable {
 	
 	fileprivate let presenter: WeatherScreenViewToPresenterInterface
 	
@@ -39,11 +39,11 @@ final class WeatherScreenViewController: UIViewController {
 	
 	fileprivate let kNightTemperatureLabelPadding: CGFloat = 16
 	fileprivate let kNightTemperatureLabelFontSize: CGFloat = 18
-	fileprivate let nightTemperatureLabel = UILabel(frame: .zero)
+	fileprivate let minTemperatureLabel = UILabel(frame: .zero)
 	
 	fileprivate let kDayTemperatureLabelPadding: CGFloat = 16
 	fileprivate let kDayTemperatureLaeblFontSize: CGFloat = 18
-	fileprivate let dayTemperatureLabel = UILabel(frame: .zero)
+	fileprivate let maxTemperatureLabel = UILabel(frame: .zero)
 	
 	fileprivate let kWeatherDescriptionLabelFontSize: CGFloat = 14
 	fileprivate let kWeatherDescriptionLabelNumberOfLines: Int = 2
@@ -127,16 +127,16 @@ fileprivate extension Private_InitialConfiguration {
 	}
 	
 	private func configureDayTemperatureLebel() {
-		dayTemperatureLabel.text = ""
-		dayTemperatureLabel.font = UIFont.systemFont(ofSize: kDayTemperatureLaeblFontSize)
-		view.addSubview(dayTemperatureLabel)
+		maxTemperatureLabel.text = ""
+		maxTemperatureLabel.font = UIFont.systemFont(ofSize: kDayTemperatureLaeblFontSize)
+		view.addSubview(maxTemperatureLabel)
 	}
 	
 	private func configureNightTemperatureLabel() {
-		nightTemperatureLabel.text = ""
-		nightTemperatureLabel.textAlignment = .left
-		nightTemperatureLabel.font = UIFont.systemFont(ofSize: kNightTemperatureLabelFontSize)
-		view.addSubview(nightTemperatureLabel)
+		minTemperatureLabel.text = ""
+		minTemperatureLabel.textAlignment = .left
+		minTemperatureLabel.font = UIFont.systemFont(ofSize: kNightTemperatureLabelFontSize)
+		view.addSubview(minTemperatureLabel)
 	}
 	
 	private func configureWeatherDescriptionLabel() {
@@ -173,20 +173,20 @@ fileprivate extension Private_InitialConfiguration {
 			averageTemperatureLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kAverageTemperatureLabelRightPadding)
 		])
 		
-		dayTemperatureLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-		dayTemperatureLabel.ars_activateConstraints([
-			dayTemperatureLabel.topAnchor.constraint(equalTo: averageTemperatureLabel.bottomAnchor),
-			dayTemperatureLabel.leftAnchor.constraint(equalTo: averageTemperatureLabel.leftAnchor, constant: kDayTemperatureLabelPadding)
+		minTemperatureLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+		minTemperatureLabel.ars_activateConstraints([
+			minTemperatureLabel.topAnchor.constraint(equalTo: averageTemperatureLabel.bottomAnchor),
+			minTemperatureLabel.leftAnchor.constraint(equalTo: averageTemperatureLabel.leftAnchor, constant: kDayTemperatureLabelPadding)
 		])
 		
-		nightTemperatureLabel.ars_activateConstraints([
-			nightTemperatureLabel.topAnchor.constraint(equalTo: dayTemperatureLabel.topAnchor),
-			nightTemperatureLabel.leftAnchor.constraint(equalTo: dayTemperatureLabel.rightAnchor, constant: kNightTemperatureLabelPadding),
-			nightTemperatureLabel.rightAnchor.constraint(greaterThanOrEqualTo: averageTemperatureLabel.rightAnchor, constant: -kNightTemperatureLabelPadding)
+		maxTemperatureLabel.ars_activateConstraints([
+			maxTemperatureLabel.topAnchor.constraint(equalTo: minTemperatureLabel.topAnchor),
+			maxTemperatureLabel.leftAnchor.constraint(equalTo: minTemperatureLabel.rightAnchor, constant: kNightTemperatureLabelPadding),
+			maxTemperatureLabel.rightAnchor.constraint(greaterThanOrEqualTo: averageTemperatureLabel.rightAnchor, constant: -kNightTemperatureLabelPadding)
 		])
 		
 		weatherDescriptionLabel.ars_activateConstraints([
-			weatherDescriptionLabel.topAnchor.constraint(equalTo: nightTemperatureLabel.bottomAnchor),
+			weatherDescriptionLabel.topAnchor.constraint(equalTo: maxTemperatureLabel.bottomAnchor),
 			weatherDescriptionLabel.leftAnchor.constraint(equalTo: averageTemperatureLabel.leftAnchor),
 			weatherDescriptionLabel.rightAnchor.constraint(equalTo: averageTemperatureLabel.rightAnchor)
 		])
@@ -198,7 +198,11 @@ fileprivate extension Private_InitialConfiguration {
 extension WeatherScreenViewController: WeatherScreenPresenterToViewInterface {
 	
 	func updateUI(withModel viewModel: WeatherScreenViewModel) {
-		
+		cityLabel.text = viewModel.cityName
+		averageTemperatureLabel.text = viewModel.averageTemperature
+		minTemperatureLabel.text = viewModel.minTemperature
+		maxTemperatureLabel.text = viewModel.maxTemperature
+		weatherDescriptionLabel.text = viewModel.weatherDescription
 	}
 	
 	

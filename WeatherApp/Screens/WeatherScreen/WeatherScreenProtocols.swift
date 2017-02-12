@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol WeatherScreenPresenterToViewInterface: class {
+protocol WeatherScreenPresenterToViewInterface: class, ErrorShowable {
 	func updateUI(withModel viewModel: WeatherScreenViewModel)
 }
 
@@ -18,7 +18,7 @@ protocol WeatherScreenViewToPresenterInterface: class {
 }
 
 protocol WeatherScreenPresenterToInteractorInterface: class {
-	func requestWeather(withCompletion onCompletion: (_ response: WeatherScreenResponseModel) -> Void)
+	func requestWeather(forCity city: City, onCompletion: @escaping (_ response: WeatherScreenResponseModel) -> Void, onError: @escaping (_ error: String) -> Void)
 }
 
 protocol WeatherScreenPresenterToWireframeInterface: class {

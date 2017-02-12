@@ -23,6 +23,9 @@
 		278EC3C01E508E0D00C8BF45 /* WeatherScreenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3BF1E508E0D00C8BF45 /* WeatherScreenResponseModel.swift */; };
 		278EC3C41E508F7600C8BF45 /* WeatherScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3C31E508F7600C8BF45 /* WeatherScreenViewModel.swift */; };
 		278EC3C61E508F9A00C8BF45 /* WeatherScreenViewModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3C51E508F9A00C8BF45 /* WeatherScreenViewModelBuilder.swift */; };
+		278EC3C81E509A8300C8BF45 /* WeatherAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3C71E509A8300C8BF45 /* WeatherAPIService.swift */; };
+		278EC3CA1E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3C91E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift */; };
+		278EC3CD1E50CB0100C8BF45 /* ErrorShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3CC1E50CB0100C8BF45 /* ErrorShowable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		278EC3BF1E508E0D00C8BF45 /* WeatherScreenResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenResponseModel.swift; path = Screens/WeatherScreen/Logic/Models/WeatherScreenResponseModel.swift; sourceTree = "<group>"; };
 		278EC3C31E508F7600C8BF45 /* WeatherScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenViewModel.swift; path = Screens/WeatherScreen/UI/Models/WeatherScreenViewModel.swift; sourceTree = "<group>"; };
 		278EC3C51E508F9A00C8BF45 /* WeatherScreenViewModelBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenViewModelBuilder.swift; path = Screens/WeatherScreen/UI/Models/WeatherScreenViewModelBuilder.swift; sourceTree = "<group>"; };
+		278EC3C71E509A8300C8BF45 /* WeatherAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherAPIService.swift; path = Services/WeatherAPIService.swift; sourceTree = "<group>"; };
+		278EC3C91E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherScreenResponseModelBuilder.swift; path = Screens/WeatherScreen/Logic/Models/WeatherScreenResponseModelBuilder.swift; sourceTree = "<group>"; };
+		278EC3CC1E50CB0100C8BF45 /* ErrorShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorShowable.swift; path = "General Protocols/ErrorShowable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 			children = (
 				271B996C1E4E66D90078D854 /* AppDelegate.swift */,
 				271B99821E4FB6450078D854 /* RootWireframe.swift */,
+				278EC3CB1E50CAE000C8BF45 /* General Protocols */,
 				271B99941E4FC7030078D854 /* Helpers */,
 				271B998B1E4FBB8B0078D854 /* Services */,
 				271B998A1E4FBB450078D854 /* Screens */,
@@ -111,8 +118,8 @@
 		271B99801E4FB6000078D854 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				278EC3C21E508F4600C8BF45 /* Models */,
 				271B99841E4FB70F0078D854 /* WeatherScreenInteractor.swift */,
+				278EC3C21E508F4600C8BF45 /* Models */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -120,10 +127,10 @@
 		271B99811E4FB60A0078D854 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				278EC3C11E508F3800C8BF45 /* Models */,
 				271B998E1E4FBD590078D854 /* WeatherScreenWireframe.swift */,
 				271B99901E4FBD7A0078D854 /* WeatherScreenPresenter.swift */,
 				271B99921E4FBD900078D854 /* WeatherScreenViewController.swift */,
+				278EC3C11E508F3800C8BF45 /* Models */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				271B998C1E4FBBBE0078D854 /* WorkDispatchService.swift */,
+				278EC3C71E509A8300C8BF45 /* WeatherAPIService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -164,9 +172,18 @@
 		278EC3C21E508F4600C8BF45 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				278EC3C91E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift */,
 				278EC3BF1E508E0D00C8BF45 /* WeatherScreenResponseModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		278EC3CB1E50CAE000C8BF45 /* General Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				278EC3CC1E50CB0100C8BF45 /* ErrorShowable.swift */,
+			);
+			name = "General Protocols";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,14 +258,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278EC3C81E509A8300C8BF45 /* WeatherAPIService.swift in Sources */,
 				271B998F1E4FBD590078D854 /* WeatherScreenWireframe.swift in Sources */,
 				271B998D1E4FBBBE0078D854 /* WorkDispatchService.swift in Sources */,
+				278EC3CD1E50CB0100C8BF45 /* ErrorShowable.swift in Sources */,
 				278EC3C01E508E0D00C8BF45 /* WeatherScreenResponseModel.swift in Sources */,
 				278EC3BE1E508A8C00C8BF45 /* WeatherScreenDispatcher.swift in Sources */,
 				271B99871E4FB7290078D854 /* WeatherScreenBuilder.swift in Sources */,
 				271B99831E4FB6450078D854 /* RootWireframe.swift in Sources */,
 				278EC3C41E508F7600C8BF45 /* WeatherScreenViewModel.swift in Sources */,
 				278EC3C61E508F9A00C8BF45 /* WeatherScreenViewModelBuilder.swift in Sources */,
+				278EC3CA1E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift in Sources */,
 				271B99851E4FB70F0078D854 /* WeatherScreenInteractor.swift in Sources */,
 				271B996D1E4E66D90078D854 /* AppDelegate.swift in Sources */,
 				271B99961E4FC72A0078D854 /* UIView+constraintHelpers.swift in Sources */,

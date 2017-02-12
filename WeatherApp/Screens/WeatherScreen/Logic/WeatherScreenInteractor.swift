@@ -8,7 +8,18 @@
 
 import Foundation
 
-final class WeatherScreenInteractor {
+
+// MARK: Typealiases
+
+fileprivate typealias Private = WeatherScreenInteractor
+
+
+// MARK: Classes
+
+final class WeatherScreenInteractor {}
+
+fileprivate extension Private {
+	
 	
 	
 	
@@ -16,8 +27,12 @@ final class WeatherScreenInteractor {
 
 extension WeatherScreenInteractor: WeatherScreenPresenterToInteractorInterface {
 	
-	func requestWeather(withCompletion onCompletion: (_ response: WeatherScreenResponseModel) -> Void) {
-		onCompletion(WeatherScreenResponseModel())
+	func requestWeather(forCity city: City, onCompletion: @escaping (_ response: WeatherScreenResponseModel) -> Void, onError: @escaping (_ error: String) -> Void) {
+		WeatherAPIService.requestWeather(for: city, onSuccess: { json in
+			onCompletion(WeatherScreenResponseModelBuilder.buildModel(from: json))
+		}, onError: { error in
+			onError(error.localizedDescription)
+		})
 	}
 	
 	

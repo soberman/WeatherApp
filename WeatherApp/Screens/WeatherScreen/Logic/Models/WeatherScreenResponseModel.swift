@@ -10,4 +10,12 @@ import Foundation
 
 struct WeatherScreenResponseModel {
 	
+	let maybeCityName: String?
+	let maybeWeatherDescription: String?
+	let maybeIconID: String?
+	let maybeAverageTemp: Int?
+	let maybeMinTemp: Int?
+	let maybeMaxTemp: Int?
+	
+	
 }

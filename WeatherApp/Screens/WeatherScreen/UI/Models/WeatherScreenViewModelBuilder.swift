@@ -10,8 +10,21 @@ import Foundation
 
 struct WeatherScreenViewModelBuilder {
 	
-	static func buildViewModel(from response: WeatherScreenResponseModel) -> WeatherScreenViewModel {
-		return WeatherScreenViewModel()
+	private init() {}
+	
+	
+	static func buildViewModel(from responseModel: WeatherScreenResponseModel) -> WeatherScreenViewModel {
+		var maybeIconURL: URL?
+		if let iconId = responseModel.maybeIconID {
+			maybeIconURL = URL(string: WeatherAPIService.weatherIconEndpoint + iconId + ".png")
+		}
+		
+		return WeatherScreenViewModel(cityName: responseModel.maybeCityName ?? "Your current location",
+		                              weatherDescription: responseModel.maybeWeatherDescription ?? "",
+		                              weatherIcon: maybeIconURL,
+		                              averageTemperature: responseModel.maybeAverageTemp != nil ? String(responseModel.maybeAverageTemp!) : "0",
+		                              maxTemperature: responseModel.maybeMaxTemp != nil ? String(responseModel.maybeMaxTemp!) : "0",
+		                              minTemperature: responseModel.maybeMinTemp != nil ? String(responseModel.maybeMinTemp!) : "0")
 	}
 	
 	

@@ -46,13 +46,29 @@ extension AccessibleFromOutside {
 
 fileprivate extension Private {
 	
-	func buildViewModel(from response: WeatherScreenResponseModel, onComplete: @escaping (_ viewModel: WeatherScreenViewModel) -> Void) {
+	func buildViewModel(from responseModel: WeatherScreenResponseModel, onComplete: @escaping (_ viewModel: WeatherScreenViewModel) -> Void) {
 		dispatcher.dispatch(on: .backgroundConcurent) { [unowned self] in
-			let viewModel = WeatherScreenViewModelBuilder.buildViewModel(from: response)
+			let viewModel = WeatherScreenViewModelBuilder.buildViewModel(from: responseModel)
 			self.dispatcher.dispatch(on: .main) {
 				onComplete(viewModel)
 			}
 		}
+	}
+	
+	func requestWeather(for city: City) {
+		self.interactor.requestWeather(forCity: .dnepr, onCompletion: { [unowned self] (response) in
+			self.buildViewModel(from: response, onComplete: { (viewModel) in
+				self.view?.updateUI(withModel: viewModel)
+			})
+		}, onError: { [unowned self] errorText in
+			self.view?.showError(errorDescription: errorText, confirmTitle: "Retry", onConfirm: {
+				self.retryRequestingWeather(for: .dnepr)
+			})
+		})
+	}
+	
+	func retryRequestingWeather(for city: City) {
+		requestWeather(for: city)
 	}
 	
 	
@@ -61,11 +77,7 @@ fileprivate extension Private {
 extension WeatherScreenPresenter: WeatherScreenViewToPresenterInterface {
 	
 	func didLoadView() {
-		self.interactor.requestWeather(withCompletion: { [unowned self] (response) in
-			self.buildViewModel(from: response, onComplete: { (viewModel) in
-				self.view?.updateUI(withModel: viewModel)
-			})
-		})
+		requestWeather(for: .dnepr)
 	}
 	
 	func didTapSettingsButton() {
