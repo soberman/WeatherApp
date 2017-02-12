@@ -27,6 +27,7 @@
 		278EC3CA1E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3C91E50B32600C8BF45 /* WeatherScreenResponseModelBuilder.swift */; };
 		278EC3CD1E50CB0100C8BF45 /* ErrorShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EC3CC1E50CB0100C8BF45 /* ErrorShowable.swift */; };
 		278EC3D11E50EAEB00C8BF45 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */; };
+		278EC3D71E50EE7900C8BF45 /* ARSLineProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278EC3D61E50EE7900C8BF45 /* ARSLineProgress.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		278EC3CC1E50CB0100C8BF45 /* ErrorShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorShowable.swift; path = "General Protocols/ErrorShowable.swift"; sourceTree = "<group>"; };
 		278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		278EC3D21E50EBD400C8BF45 /* WeatherApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeatherApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		278EC3D61E50EE7900C8BF45 /* ARSLineProgress.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARSLineProgress.framework; path = Carthage/Build/iOS/ARSLineProgress.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				278EC3D11E50EAEB00C8BF45 /* SDWebImage.framework in Frameworks */,
+				278EC3D71E50EE7900C8BF45 /* ARSLineProgress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +198,7 @@
 		278EC3CF1E50EAEB00C8BF45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				278EC3D61E50EE7900C8BF45 /* ARSLineProgress.framework */,
 				278EC3D01E50EAEB00C8BF45 /* SDWebImage.framework */,
 			);
 			name = Frameworks;
@@ -277,6 +281,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ARSLineProgress.framework",
 			);
 			name = Carthage;
 			outputPaths = (
