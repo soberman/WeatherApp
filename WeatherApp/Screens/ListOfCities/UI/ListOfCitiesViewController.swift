@@ -51,6 +51,7 @@ fileprivate extension Private_InitialConfiguration {
 	}
 	
 	private func configureView() {
+		title = "List of Cities"
 		view.backgroundColor = .white
 	}
 	

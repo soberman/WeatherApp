@@ -144,6 +144,7 @@ fileprivate extension Private_InitialConfiguration {
 		weatherDescriptionLabel.text = ""
 		weatherDescriptionLabel.font = UIFont.systemFont(ofSize: kWeatherDescriptionLabelFontSize)
 		weatherDescriptionLabel.numberOfLines = kWeatherDescriptionLabelNumberOfLines
+		weatherDescriptionLabel.textAlignment = .center
 		view.addSubview(weatherDescriptionLabel)
 	}
 	
