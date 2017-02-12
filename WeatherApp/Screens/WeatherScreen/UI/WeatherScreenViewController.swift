@@ -92,9 +92,10 @@ fileprivate extension Private_InitialConfiguration {
 		configureCityLabel()
 		configureWeatherImageView()
 		configureAverageTemperatureLabel()
-		configureNightTemperatureLabel()
 		configureDayTemperatureLebel()
+		configureNightTemperatureLabel()
 		configureWeatherDescriptionLabel()
+		configureInitialConstraints()
 	}
 	
 	private func configureView() {
@@ -106,38 +107,18 @@ fileprivate extension Private_InitialConfiguration {
 		settingsButton.setImage(#imageLiteral(resourceName: "SettingsButton_Highlighted"), for: .highlighted)
 		settingsButton.addTarget(self, action: #selector(didTapSettingsButton), for: .touchUpInside)
 		view.addSubview(settingsButton)
-		
-		settingsButton.ars_activateConstraints([
-			settingsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: kSettingsButtonPadding),
-			settingsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -kSettingsButtonPadding),
-			settingsButton.heightAnchor.constraint(equalToConstant: kSettingsButtonHeight),
-			settingsButton.widthAnchor.constraint(equalToConstant: kSettingsButtonHeight)
-		])
 	}
 	
 	private func configureCityLabel() {
 		// TODO: remove this during loading state implementation
 		cityLabel.text = "Change this text during loading state implementation"
 		view.addSubview(cityLabel)
-		
-		cityLabel.ars_activateConstraints([
-			cityLabel.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: kCityLabelPadding),
-			cityLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: kCityLabelPadding),
-			cityLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kCityLabelPadding)
-		])
 	}
 	
 	private func configureWeatherImageView() {
 		// TODO: remove this during loading state implementation
 		weatherImageView.backgroundColor = .purple
 		view.addSubview(weatherImageView)
-		
-		weatherImageView.ars_activateConstraints([
-			weatherImageView.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: kWeatherImageViewPadding),
-			weatherImageView.leftAnchor.constraint(equalTo: cityLabel.leftAnchor),
-			weatherImageView.heightAnchor.constraint(equalToConstant: kWeatherImageViewHeight),
-			weatherImageView.widthAnchor.constraint(equalToConstant: kWeatherImageViewHeight)
-		])
 	}
 	
 	private func configureAverageTemperatureLabel() {
@@ -145,24 +126,6 @@ fileprivate extension Private_InitialConfiguration {
 		averageTemperatureLabel.text = "+15°"
 		averageTemperatureLabel.font = UIFont.systemFont(ofSize: kAverageTemperatureLabelFontSize)
 		view.addSubview(averageTemperatureLabel)
-		
-		averageTemperatureLabel.ars_activateConstraints([
-			averageTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.topAnchor),
-			averageTemperatureLabel.leftAnchor.constraint(equalTo: weatherImageView.rightAnchor, constant: kAverageTemperatureLabelLeftPadding),
-			averageTemperatureLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kAverageTemperatureLabelRightPadding)
-		])
-	}
-	
-	private func configureNightTemperatureLabel() {
-		// TODO: remove this during loading state implementation
-		nightTemperatureLabel.text = "+8°"
-		nightTemperatureLabel.font = UIFont.systemFont(ofSize: kNightTemperatureLabelFontSize)
-		view.addSubview(nightTemperatureLabel)
-		
-		nightTemperatureLabel.ars_activateConstraints([
-			nightTemperatureLabel.topAnchor.constraint(equalTo: averageTemperatureLabel.bottomAnchor),
-			nightTemperatureLabel.rightAnchor.constraint(equalTo: averageTemperatureLabel.rightAnchor, constant: -kNightTemperatureLabelPadding)
-		])
 	}
 	
 	private func configureDayTemperatureLebel() {
@@ -170,11 +133,14 @@ fileprivate extension Private_InitialConfiguration {
 		dayTemperatureLabel.text = "+18°"
 		dayTemperatureLabel.font = UIFont.systemFont(ofSize: kDayTemperatureLaeblFontSize)
 		view.addSubview(dayTemperatureLabel)
-		
-		dayTemperatureLabel.ars_activateConstraints([
-			dayTemperatureLabel.topAnchor.constraint(equalTo: nightTemperatureLabel.topAnchor),
-			dayTemperatureLabel.rightAnchor.constraint(equalTo: nightTemperatureLabel.leftAnchor, constant: -kDayTemperatureLabelPadding)
-		])
+	}
+	
+	private func configureNightTemperatureLabel() {
+		// TODO: remove this during loading state implementation
+		nightTemperatureLabel.text = "+8°"
+		nightTemperatureLabel.textAlignment = .left
+		nightTemperatureLabel.font = UIFont.systemFont(ofSize: kNightTemperatureLabelFontSize)
+		view.addSubview(nightTemperatureLabel)
 	}
 	
 	private func configureWeatherDescriptionLabel() {
@@ -183,11 +149,51 @@ fileprivate extension Private_InitialConfiguration {
 		weatherDescriptionLabel.font = UIFont.systemFont(ofSize: 14)
 		weatherDescriptionLabel.numberOfLines = 2
 		view.addSubview(weatherDescriptionLabel)
+	}
+	
+	private func configureInitialConstraints() {
+		settingsButton.ars_activateConstraints([
+			settingsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: kSettingsButtonPadding),
+			settingsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -kSettingsButtonPadding),
+			settingsButton.heightAnchor.constraint(equalToConstant: kSettingsButtonHeight),
+			settingsButton.widthAnchor.constraint(equalToConstant: kSettingsButtonHeight)
+		])
+		
+		cityLabel.ars_activateConstraints([
+			cityLabel.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: kCityLabelPadding),
+			cityLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: kCityLabelPadding),
+			cityLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kCityLabelPadding)
+		])
+		
+		weatherImageView.ars_activateConstraints([
+			weatherImageView.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: kWeatherImageViewPadding),
+			weatherImageView.leftAnchor.constraint(equalTo: cityLabel.leftAnchor),
+			weatherImageView.heightAnchor.constraint(equalToConstant: kWeatherImageViewHeight),
+			weatherImageView.widthAnchor.constraint(equalToConstant: kWeatherImageViewHeight)
+		])
+		
+		averageTemperatureLabel.ars_activateConstraints([
+			averageTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.topAnchor),
+			averageTemperatureLabel.leftAnchor.constraint(equalTo: weatherImageView.rightAnchor, constant: kAverageTemperatureLabelLeftPadding),
+			averageTemperatureLabel.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -kAverageTemperatureLabelRightPadding)
+		])
+		
+		dayTemperatureLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+		dayTemperatureLabel.ars_activateConstraints([
+			dayTemperatureLabel.topAnchor.constraint(equalTo: averageTemperatureLabel.bottomAnchor),
+			dayTemperatureLabel.leftAnchor.constraint(equalTo: averageTemperatureLabel.leftAnchor, constant: kDayTemperatureLabelPadding)
+		])
+		
+		nightTemperatureLabel.ars_activateConstraints([
+			nightTemperatureLabel.topAnchor.constraint(equalTo: dayTemperatureLabel.topAnchor),
+			nightTemperatureLabel.leftAnchor.constraint(equalTo: dayTemperatureLabel.rightAnchor, constant: kNightTemperatureLabelPadding),
+			nightTemperatureLabel.rightAnchor.constraint(greaterThanOrEqualTo: averageTemperatureLabel.rightAnchor, constant: -kNightTemperatureLabelPadding)
+		])
 		
 		weatherDescriptionLabel.ars_activateConstraints([
 			weatherDescriptionLabel.topAnchor.constraint(equalTo: nightTemperatureLabel.bottomAnchor),
 			weatherDescriptionLabel.leftAnchor.constraint(equalTo: averageTemperatureLabel.leftAnchor),
-			weatherDescriptionLabel.rightAnchor.constraint(equalTo: averageTemperatureLabel.rightAnchor),
+			weatherDescriptionLabel.rightAnchor.constraint(equalTo: averageTemperatureLabel.rightAnchor)
 		])
 	}
 	
