@@ -8,6 +8,24 @@
 
 import Foundation
 
-final class ListOfCitiesWireframe {}
 
-extension ListOfCitiesWireframe: ListOfCitiesPresenterToWireframe {}
+final class ListOfCitiesWireframe {
+
+	fileprivate weak var maybePreviousWireframe: CityRecieveble?
+	
+	
+	init(withReferencedWireframe wireframe: CityRecieveble) {
+		self.maybePreviousWireframe = wireframe
+	}
+
+}
+
+extension ListOfCitiesWireframe: ListOfCitiesPresenterToWireframe {
+
+	func hide(_ viewController: UIViewController, withSelectedCity city: City) {
+		viewController.dismiss(animated: true, completion: nil)
+		maybePreviousWireframe?.didSelectCity(city)
+	}
+	
+	
+}

@@ -12,14 +12,15 @@ final class ListOfCitiesModuleBuilder {
 	
 	private static weak var maybeNavController: UINavigationController?
 	
-	
 	private init() {}
 	
-	class func buildListOfCitiesModule() -> UIViewController {
-		let wireframe = ListOfCitiesWireframe()
+	class func buildListOfCitiesModule(fromWireframe: WeatherScreenWireframe) -> UIViewController {
+		let wireframe = ListOfCitiesWireframe(withReferencedWireframe: fromWireframe)
 		let interactor = ListOfCitiesInteractor()
 		let presenter = ListOfCitiesPresenter(interactor: interactor, wireframe: wireframe)
 		let viewController = ListOfCitiesViewController(withPresenter: presenter)
+		
+		presenter.setView(viewController)
 		
 		let navController = UINavigationController(rootViewController: viewController)
 		let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissListOfCitiesViewController))

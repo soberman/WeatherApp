@@ -26,3 +26,7 @@ protocol WeatherScreenPresenterToInteractor: class {
 protocol WeatherScreenPresenterToWireframe: class {
 	func showListOfCitiesModule(on viewController: UIViewController)
 }
+
+protocol WeatherScreenWireframeToPresenter: class {
+	func cityHasBeenChanged(to city: City)
+}

@@ -10,4 +10,16 @@ import Foundation
 
 final class ListOfCitiesInteractor {}
 
-extension ListOfCitiesInteractor: ListOfCitiesPresenterToInteractor {}
+extension ListOfCitiesInteractor: ListOfCitiesPresenterToInteractor {
+
+	func listOfCities() -> ListOfCitiesModel {
+		return ListOfCitiesModel(cities: [
+			City.dnepr.rawValue,
+			City.kharkiv.rawValue,
+			City.kiev.rawValue,
+			City.zaporozhye.rawValue
+		])
+	}
+
+
+}

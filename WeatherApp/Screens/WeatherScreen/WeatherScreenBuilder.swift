@@ -21,6 +21,7 @@ struct WeatherScreenModuleBuilder {
 		let viewController = WeatherScreenViewController(withPresenter: presenter)
 		
 		presenter.setView(viewController)
+		wireframe.setPresenter(presenter)
 		
 		return viewController
 	}

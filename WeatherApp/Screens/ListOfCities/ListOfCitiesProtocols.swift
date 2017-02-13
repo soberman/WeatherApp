@@ -8,18 +8,23 @@
 
 import Foundation
 
+protocol CityRecieveble: class {
+	func didSelectCity(_ city: City)
+}
+
 protocol ListOfCitiesPresenterToView: class, ErrorShowable {
-//	func updateUI(withModel viewModel: WeatherScreenViewModel)
+	func updateUI(withModel viewModel: ListOfCitiesViewModel)
 }
 
 protocol ListOfCitiesViewToPresenter: class {
 	func didLoadView()
+	func didSelectCity(withName cityName: String)
 }
 
 protocol ListOfCitiesPresenterToInteractor: class {
-	
+	func listOfCities() -> ListOfCitiesModel
 }
 
 protocol ListOfCitiesPresenterToWireframe: class {
-	
+	func hide(_ viewController: UIViewController, withSelectedCity city: City)
 }

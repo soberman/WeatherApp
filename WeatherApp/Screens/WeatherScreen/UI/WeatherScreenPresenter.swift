@@ -24,6 +24,7 @@ final class WeatherScreenPresenter {
 	fileprivate let dispatcher: WeatherScreenDispatcher
 	
 	fileprivate weak var view: WeatherScreenPresenterToView?
+	fileprivate var currentCity: City = .dnepr
 	
 	
 	init(interactor: WeatherScreenPresenterToInteractor, wireframe: WeatherScreenPresenterToWireframe, dispatcher: WeatherScreenDispatcher) {
@@ -56,7 +57,7 @@ fileprivate extension Private {
 	}
 	
 	func requestWeather(for city: City) {
-		self.interactor.requestWeather(forCity: .dnepr, onCompletion: { [unowned self] (response) in
+		self.interactor.requestWeather(forCity: city, onCompletion: { [unowned self] (response) in
 			self.buildViewModel(from: response, onComplete: { (viewModel) in
 				self.view?.updateUI(withModel: viewModel)
 				self.view?.hidePreloader()
@@ -64,7 +65,7 @@ fileprivate extension Private {
 		}, onError: { [unowned self] errorText in
 			self.view?.hidePreloader()
 			self.view?.showError(errorDescription: errorText, confirmTitle: "Retry", onConfirm: {
-				self.retryRequestingWeather(for: .dnepr)
+				self.retryRequestingWeather(for: city)
 			})
 		})
 	}
@@ -80,12 +81,23 @@ extension WeatherScreenPresenter: WeatherScreenViewToPresenter {
 	
 	func didLoadView() {
 		view?.showPreloader()
-		requestWeather(for: .dnepr)
+		requestWeather(for: currentCity)
 	}
 	
 	func didTapSettingsButton() {
 		guard let viewController = view as? UIViewController else { return }
 		wireframe.showListOfCitiesModule(on: viewController)
+	}
+	
+	
+}
+
+extension WeatherScreenPresenter: WeatherScreenWireframeToPresenter {
+	
+	func cityHasBeenChanged(to city: City) {
+		guard currentCity != city else { return }
+		currentCity = city
+		requestWeather(for: city)
 	}
 	
 	
